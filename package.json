@@ -1,5 +1,8 @@
 {
-  "workspaces": ["packages/*", "apps/*"],
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
@@ -7,5 +10,8 @@
   },
   "devDependencies": {
     "turbo": "^1.13.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }
