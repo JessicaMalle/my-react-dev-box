@@ -2,24 +2,15 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Button } from "@repo/ui/button";
+import {Hello} from '@scope/example';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+      <Hello name="Jessica" />
       <div>
-        <Button
-          label="Button"
-          onClick={() => {}}
-          size="large"
-        />
-        <Button
-          label="Button"
-          onClick={() => {}}
-          size="small"
-        />
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>

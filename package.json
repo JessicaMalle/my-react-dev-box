@@ -3,22 +3,29 @@
     "packages/*",
     "apps/*"
   ],
+  "type": "module",
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
     "test": "turbo run test",
-    "gen-pkg": "node scripts/gen-pkg.js"
+    "gen-pkg": "node scripts/gen-pkg.cjs"
   },
   "devDependencies": {
     "fs-extra": "^11.2.0",
+    "styled-components": "^6.1.10",
     "turbo": "^1.13.2"
   },
   "dependencies": {
-    "@testeed/test": "^1.0.0",
+    "@scope/example": "^1.0.0",
     "dotenv": "^16.4.5"
   },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
   "engines": {
-    "node": ">=20.0.0",
-    "npm": ">=10.0.0"
+    "node": "^20",
+    "npm": "^10"
   }
 }
