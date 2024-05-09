@@ -8,6 +8,7 @@
     "dev": "turbo dev",
     "build": "turbo build",
     "lint": "turbo lint",
+    "lint:fix": "turbo lint:fix",
     "test": "turbo test",
     "gen-pkg": "node scripts/gen-pkg.cjs"
   },
@@ -22,7 +23,8 @@
     "fs-extra": "^11.2.0",
     "react-refresh": "^0.14.2",
     "styled-components": "^6.1.10",
-    "turbo": "^1.13.2"
+    "turbo": "^1.13.2",
+    "@antfu/eslint-config": "^2.17.0"
   },
   "dependencies": {
     "@scope/example": "^1.0.0",
