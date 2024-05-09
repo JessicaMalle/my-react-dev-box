@@ -1,4 +1,6 @@
 {
+  "name": "my-react-dev-box",
+  "version": "1.0.0",
   "workspaces": [
     "packages/*",
     "apps/*"
