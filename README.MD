@@ -1,9 +1,16 @@
-# 🚀 Frontend Dev Box
-[![Turborepo](https://img.shields.io/badge/Turborepo-000000?style=for-the-badge&logo=turborepo&logoColor=white)](https://turborepo.com/)
-[![Vite JS](https://img.shields.io/badge/Vite_JS-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-[![Storybook](https://img.shields.io/badge/Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white)](https://storybook.js.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Turborepo](https://img.shields.io/badge/Turborepo-000000?style=flat-square&logo=turborepo&logoColor=white)](https://turborepo.com/)
+[![Vite JS](https://img.shields.io/badge/Vite_JS-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Storybook](https://img.shields.io/badge/Storybook-FF4785?style=flat-square&logo=storybook&logoColor=white)](https://storybook.js.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+
+# My React Dev Box
+
+<div align="center">
+    <img src="./logo.webp" alt="Logo" width="200"/>
+</div>
+
+My toolbox for fast and efficient React development.
 
 This monorepo was created with [Turborepo](https://turborepo.com/) by Vercel. It contains a Storybook and a React application with Vite in TypeScript.
 
@@ -142,3 +149,4 @@ This project uses ESLint for static code analysis. The configuration is as follo
 - `pluginJs.configs.recommended`: ESLint's recommended rules.
 - `tseslint.configs.recommended`: TypeScript specific linting rules from the TypeScript ESLint plugin.
 - `pluginReactConfig`: React specific linting rules from the React ESLint plugin.
+
