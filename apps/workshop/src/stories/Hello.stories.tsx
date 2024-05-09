@@ -1,5 +1,5 @@
+import { Hello } from '@scope/example';
 import type { Meta, StoryObj } from '@storybook/react';
-import {Hello} from '@scope/example';
 
 const meta = {
   title: 'Example/Hello',
