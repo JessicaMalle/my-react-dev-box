@@ -5,13 +5,22 @@
   ],
   "type": "module",
   "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build",
-    "test": "turbo run test",
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "test": "turbo test",
     "gen-pkg": "node scripts/gen-pkg.cjs"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "eslint": "^8.57.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-oxlint": "^0.2.9",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
     "fs-extra": "^11.2.0",
+    "react-refresh": "^0.14.2",
     "styled-components": "^6.1.10",
     "turbo": "^1.13.2"
   },
