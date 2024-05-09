@@ -10,7 +10,7 @@
     "lint": "turbo lint",
     "lint:fix": "turbo lint:fix",
     "test": "turbo test",
-    "gen-pkg": "node scripts/gen-pkg.cjs",
+    "gen-pkg": "node scripts/gen-pkg.js",
     "format-fresh-app": "node scripts/format-fresh-vite-react-app.js"
   },
   "devDependencies": {

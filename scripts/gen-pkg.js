@@ -1,39 +1,46 @@
 #!/usr/bin/env node
-const { execSync } = require('child_process');
-const readline = require('readline');
-const util = require('util');
-const fs = require('fs-extra');
-const packageJson = require('../package.json');
+import { execSync } from 'child_process';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import chalk from 'chalk';
+import fs from 'fs-extra';
+import inquirer from 'inquirer';
+import packageJson from '../package.json' assert { type: 'json' };
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-const question = util.promisify(rl.question).bind(rl);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // eslint-disable-next-line no-extend-native
 String.prototype.toKebabCase = function() {
   return this.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => '-' + chr).trim();
 };
 
-// main
 async function main() {
-  console.log('🚀 Starting package generation...');
+  console.log(chalk.green('🚀 Starting package generation...'));
 
-  const scope = await question('🔭 Enter Scope (default: @scope):') || 'scope';
+  const { scope } = await inquirer.prompt({
+    type: 'input',
+    name: 'scope',
+    message: '🔭 Enter Scope (default: @scope):',
+    default: 'scope',
+  });
   const scopeName = scope.toKebabCase();
 
-  const name = await question('📦 What is the name of the package ? ');
+  const { name } = await inquirer.prompt({
+    type: 'input',
+    name: 'name',
+    message: '📦 What is the name of the package ? ',
+  });
   const packageName = name.toKebabCase();
 
-  console.log('🔧 Creating package...');
+  console.log(chalk.blue('🔧 Creating package...'));
   const cmd = `npm init --scope=@${scopeName} -y -w ./packages/${packageName}`;
   execSync(cmd.toString(), {
     cwd: __dirname,
     stdio: 'inherit',
   });
 
-  console.log('📝 Generating files...');
+  console.log(chalk.blue('📝 Generating files...'));
   // Generate npmignore
   await fs.outputFile(`./packages/${packageName}/.npmignore`, `*
     !dist/**
@@ -90,7 +97,10 @@ describe('[${packageName}] hello()', () => {
 `);
 
   // Generate package.json
-  const pkg = require(`../packages/${packageName}/package.json`);
+  const pkgPath = `../packages/${packageName}/package.json`;
+  const importedPkg = await import(pkgPath, { assert: { type: 'json' } });
+  const pkg = { ...importedPkg.default }; // Create a new object and spread the properties of the imported module into it
+
   pkg.types = 'dist/index.d.ts';
   pkg.main = 'dist/index.js';
   pkg.type = 'module';
@@ -109,15 +119,15 @@ describe('[${packageName}] hello()', () => {
 
   await fs.writeJSON(`./packages/${packageName}/package.json`, pkg, { spaces: 2 });
 
-  console.log('🎉 Package generation complete!');
+  console.log(chalk.green('🎉 Package generation complete!'));
 }
 
 main()
   .then(() => {
-    console.log('✅ All done!');
+    console.log(chalk.green('✅ All done!'));
     process.exit();
   })
   .catch((error) => {
-    console.warn('❌ An error occurred:', error);
+    console.error(chalk.red('❌ An error occurred:'), error);
     process.exit(1);
   });
